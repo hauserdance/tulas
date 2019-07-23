@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'Tulas';
   @ViewChild('f') signupForm: NgForm;
+  
   hinnasto = {
     vs_11: 2,
     vs_10: 2,
@@ -17,11 +18,6 @@ export class AppComponent implements OnInit {
     pistorasia: 2
   }
   summa = 0;
-  vs_11 = 0;
-  vs_10 = 0;
-  kotelo = 0;
-  alakatto = 0;
-  pistorasia = 0;
 
   ngOnInit() {
 
@@ -38,17 +34,11 @@ export class AppComponent implements OnInit {
   }
 
   updateSumma() {
-    this.vs_11 = this.signupForm.value.vs_11;  
-    this.vs_10 = this.signupForm.value.vs_10;  
-    this.kotelo = this.signupForm.value.kotelo;  
-    this.alakatto = this.signupForm.value.alakatto;  
-    this.pistorasia = this.signupForm.value.pistorasia;  
-    
-    this.summa = this.vs_11 * this.hinnasto.vs_11 +
-                 this.vs_10 * this.hinnasto.vs_10 +
-                 this.kotelo * this.hinnasto.kotelo +
-                 this.alakatto * this.hinnasto.alakatto +
-                 this.pistorasia * this.hinnasto.pistorasia;
+    this.summa = this.signupForm.value.vs_11 * this.hinnasto.vs_11 +
+                 this.signupForm.value.vs_10 * this.hinnasto.vs_10 +
+                 this.signupForm.value.kotelo * this.hinnasto.kotelo +
+                 this.signupForm.value.alakatto * this.hinnasto.alakatto +
+                 this.signupForm.value.pistorasia * this.hinnasto.pistorasia;
   }
   
 }
