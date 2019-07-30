@@ -1,6 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { HttpService} from './http.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +11,7 @@ import { NgForm } from '@angular/forms';
 
 export class AppComponent implements OnInit {
   title = 'Tulas';
-  myDate = Date.now();
+  myDate = new Date(Date.now());
   @ViewChild('f') signupForm: NgForm;
   
   
@@ -21,19 +23,29 @@ export class AppComponent implements OnInit {
     pistorasia: 2,
     tunti: 12
   }
+  user_id =1;
   summa = 0;
 
-  ngOnInit() {
+  constructor(private httpService: HttpService) { }
 
+  ngOnInit() {
+    console.log(this.myDate);
   }
 
   onSubmit() {
-    console.log(this.signupForm);
-  
-    //this.user.email = this.signupForm.value.email;
-    //this.user.subscription = this.signupForm.value.subscription;
-    //this.user.password = this.signupForm.value.password;
-
+    //console.log(this.signupForm);
+    let workDay = {
+      date: this.myDate,
+      vs_11: this.signupForm.value.vs_11,
+      vs_10: this.signupForm.value.vs_10,
+      kotelo: this.signupForm.value.kotelo,
+      alakatto: this.signupForm.value.alakatto,
+      pistorasia: this.signupForm.value.pistorasia,
+      tunti: this.signupForm.value.tunti
+    }
+    //console.log(workDay);
+    this.httpService.newWordDay(this.user_id, this.myDate, workDay);
+    
     //this.signupForm.reset();
   }
 
