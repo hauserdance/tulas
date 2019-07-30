@@ -4,6 +4,12 @@
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <div class="form-group">
+              <div class="row formRow">
+                <div class="col-md-5 col-10">
+                  <h3>{{ myDate | date : 'dd.MM.yyyy' }} </h3>
+                </div>
+              </div>
+
             <div class="row formRow">
               <div class="col-md-3 col-6">
                 <label for="vs_11">Väliseinä 1+1, m²</label>
@@ -83,6 +89,23 @@
                 required>
               </div>
             </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="tunti">Tuntityö</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="tunti" 
+                class="form-control"
+                ngModel
+                name="tunti"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+            
           </div>
           
           <button 
@@ -96,3 +119,4 @@
     </div>
   </div>
 </div>
+
