@@ -5,22 +5,24 @@
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <div class="form-group">
               <div class="row formRow">
-                <div class="col-md-5 col-10">
-                  <h3>{{ myDate | date : 'dd.MM.yyyy' }} </h3>
+                <div class="col-md-12 col-12">
+                  <h4>{{ workDayObject.date | date : 'dd.MM.yyyy' }} 
+                    <div class="otsikko" *ngIf="f.touched && summa">Всего: {{ summa }}€</div>
+                  </h4>
                 </div>
               </div>
 
             <div class="row formRow">
               <div class="col-md-3 col-6">
-                <label for="vs_11">Väliseinä 1+1, m²</label>
+                <label for="vs_11k600">Väliseinä 1+1 k600, m²</label>
               </div>
               <div class="col-md-2 col-4">
                 <input 
                 type="number" 
-                id="vs_11" 
+                id="vs_11k600" 
                 class="form-control"
                 ngModel
-                name="vs_11"
+                name="vs_11k600"
                 (blur)="updateSumma()"
                 required>
               </div>
@@ -28,15 +30,15 @@
 
             <div class="row formRow">
               <div class="col-md-3 col-6">
-                <label for="vs_10">Väliseinä 1+0, m²</label>
+                <label for="vs_11k400">Väliseinä 1+1 k400, m²</label>
               </div>
               <div class="col-md-2 col-4">
                 <input 
                 type="number" 
-                id="vs_10" 
+                id="vs_11k400" 
                 class="form-control"
                 ngModel
-                name="vs_10"
+                name="vs_11k400"
                 (blur)="updateSumma()"
                 required>
               </div>
@@ -44,15 +46,96 @@
 
             <div class="row formRow">
               <div class="col-md-3 col-6">
-                <label for="kotelo">Kotelo, m</label>
+                <label for="vs_11k300">Väliseinä 1+1 k300, m²</label>
               </div>
               <div class="col-md-2 col-4">
                 <input 
                 type="number" 
-                id="kotelo" 
+                id="vs_11k300" 
                 class="form-control"
                 ngModel
-                name="kotelo"
+                name="vs_11k300"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="vs_01k600">Väliseinä 0+1 k600, m²</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="vs_01k600" 
+                class="form-control"
+                ngModel
+                name="vs_01k600"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="kylpary2l">Kylpäry 2 levy, m²</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="kylpary2l" 
+                class="form-control"
+                ngModel
+                name="kylpary2l"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="villa">Villa, m²</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="villa" 
+                class="form-control"
+                ngModel
+                name="villa"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+            
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="alakattoR_alle100">Alakatto reika alle 100mm, kpl</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="alakattoR_alle100" 
+                class="form-control"
+                ngModel
+                name="alakattoR_alle100"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="alakattoR_yli100">Alakatto reika yli 101mm, kpl</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="alakattoR_yli100" 
+                class="form-control"
+                ngModel
+                name="alakattoR_yli100"
                 (blur)="updateSumma()"
                 required>
               </div>
@@ -76,7 +159,87 @@
 
             <div class="row formRow">
               <div class="col-md-3 col-6">
-                <label for="pistorasia">Pistorasia</label>
+                <label for="kotelo">Kotelo, jm</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="kotelo" 
+                class="form-control"
+                ngModel
+                name="kotelo"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="alakatto_ots">Alakatto ots, jm</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="alakatto_ots" 
+                class="form-control"
+                ngModel
+                name="alakatto_ots"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="seina_paady">Seinä päädy, jm</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="seina_paady" 
+                class="form-control"
+                ngModel
+                name="seina_paady"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="liukuovi_as">Liukuovi asennus, kpl</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="liukuovi_as" 
+                class="form-control"
+                ngModel
+                name="liukuovi_as"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="jt">J.T., kpl</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="number" 
+                id="jt" 
+                class="form-control"
+                ngModel
+                name="jt"
+                (blur)="updateSumma()"
+                required>
+              </div>
+            </div>
+
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="pistorasia">Pistorasia, kpl</label>
               </div>
               <div class="col-md-2 col-4">
                 <input 
@@ -92,7 +255,7 @@
 
             <div class="row formRow">
               <div class="col-md-3 col-6">
-                <label for="tunti">Tuntityö</label>
+                <label for="tunti">Tuntityö, kpl</label>
               </div>
               <div class="col-md-2 col-4">
                 <input 
@@ -106,6 +269,20 @@
               </div>
             </div>
             
+            <div class="row formRow">
+              <div class="col-md-3 col-6">
+                <label for="kuvaus">Kuvaus</label>
+              </div>
+              <div class="col-md-2 col-4">
+                <input 
+                type="text" 
+                id="kuvaus" 
+                class="form-control"
+                ngModel
+                name="kuvaus"
+                required>
+              </div>
+            </div>
           </div>
           
           <button 
@@ -114,6 +291,7 @@
               >Save</button>
         </form>
         <hr>
+        {{ workDayObject.date }}
         <h3 *ngIf="f.touched && summa">Всего: {{ summa }}€</h3>
       </div>
     </div>
