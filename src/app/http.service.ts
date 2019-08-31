@@ -14,7 +14,7 @@ export class HttpService{
         'Authorization': 'my-auth-token'
       })
     };
-    
+     
     if (edit) {
       /*
       return this.http.put("http://tulas.myspt.ru/api/admin/user/1/work", workDayObject, httpOptions)
